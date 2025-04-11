@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package vista;
-
+//inicando bitacora
 import datos.VendedoresDAO;
 import domain.Bitacora;
 import datos.BitacoraDAO;
