@@ -4,7 +4,7 @@
  */
 package datos;
 
-import domain.Pacientes;
+import domain.Vendedores;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,42 +20,42 @@ import java.util.Set;
  */
 public class VendedoresDAO {
    
-    private static final String SQL_SELECT = "SELECT id_paci, nombre_paci, apellido_paci, genero_paci, direccion_paci, telefono_paci, estado_paci FROM pacientes";
-    private static final String SQL_INSERT = "INSERT INTO pacientes(id_paci, nombre_paci, apellido_paci, genero_paci, direccion_paci, telefono_paci, estado_paci ) VALUES(?, ?, ?, ?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE pacientes SET nombre_paci=?, apellido_paci=?, genero_paci=?, direccion_paci=?, telefono_paci=?, estado_paci=?  WHERE id_paci= ?";
-    private static final String SQL_DELETE = "DELETE FROM pacientes WHERE id_paci=?";
-    private static final String SQL_QUERY = "SELECT id_paci, nombre_paci, apellido_paci, genero_paci, direccion_paci, telefono_paci, estado_paci FROM pacientes WHERE id_paci = ?";
+    private static final String SQL_SELECT = "SELECT id_vend, nombre_vend, apellido_vend, genero_vend, direccion_vend, telefono_vend, estado_vend FROM vendedores";
+    private static final String SQL_INSERT = "INSERT INTO vendedores(id_vend, nombre_vend, apellido_vend, genero_vend, direccion_vend, telefono_vend, estado_vend) VALUES(?, ?, ?, ?, ?, ?, ?)";
+    private static final String SQL_UPDATE = "UPDATE vendedores SET nombre_vend=?, apellido_vend=?, genero_vend=?, direccion_vend=?, telefono_vend=?, estado_vend=?  WHERE id_vend= ?";
+    private static final String SQL_DELETE = "DELETE FROM vendedores WHERE id_vend=?";
+    private static final String SQL_QUERY = "SELECT id_vend, nombre_vend, apellido_vend, genero_vend, direccion_vend, telefono_vend, estado_vend FROM vendedores WHERE id_vend = ?";
 
-    public List<Pacientes> select() {
+    public List<Vendedores> select() {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        Pacientes paciente = null;
-        List<Pacientes> pacientes = new ArrayList<Pacientes>();
+        Vendedores vendedor = null;
+        List<Vendedores> vendedores = new ArrayList<Vendedores>();
 
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_SELECT);
             rs = stmt.executeQuery();
             while (rs.next()) {
-                String codigo = rs.getString("id_paci");
-                String nombre = rs.getString("nombre_paci");
-                String apellido = rs.getString("apellido_paci");
-                String genero = rs.getString("genero_paci");
-                String direccion = rs.getString("direccion_paci");
-                String telefono = rs.getString("telefono_paci");
-                String estatus = rs.getString("estado_paci");
+                String codigo = rs.getString("id_vend");
+                String nombre = rs.getString("nombre_vend");
+                String apellido = rs.getString("apellido_vend");
+                String genero = rs.getString("genero_vend");
+                String direccion = rs.getString("direccion_vendi");
+                String telefono = rs.getString("telefono_vend");
+                String estatus = rs.getString("estado_vend");
                 
-                paciente = new Pacientes();
-                paciente.setId_paci(codigo);
-                paciente.setNombre_paci(nombre);
-                paciente.setApellido_paci(apellido);
-                paciente.setGenero_paci(genero);
-                paciente.setDireccion_paci(direccion);
-                paciente.setTelefono_paci(telefono);
-                paciente.setEstado_paci(estatus);
+                vendedor = new Vendedores();
+               vendedor.setId_vend(codigo);
+                vendedor.setNombre_vend(nombre);
+               vendedor.setApellido_vend(apellido);
+                vendedor.setGenero_vend(genero);
+                vendedor.setDireccion_vend(direccion);
+                vendedor.setTelefono_vend(telefono);
+                vendedor.setEstado_vend(estatus);
                 
-                pacientes.add(paciente);
+                vendedores.add(vendedor);
             }
 
         } catch (SQLException ex) {
@@ -66,23 +66,23 @@ public class VendedoresDAO {
             Conexion.close(conn);
         }
 
-        return pacientes;
+        return vendedores;
     }
 
-    public int insert(Pacientes paciente) {
+    public int insert(Vendedores vendedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
         try {
             conn = Conexion.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, paciente.getId_paci());
-            stmt.setString(2, paciente.getNombre_paci());
-            stmt.setString(3, paciente.getApellido_paci());
-            stmt.setString(4, paciente.getGenero_paci());
-            stmt.setString(5, paciente.getDireccion_paci());
-            stmt.setString(6, paciente.getTelefono_paci());
-            stmt.setString(7, paciente.getEstado_paci());
+            stmt.setString(1, vendedor.getId_vend());
+            stmt.setString(2, vendedor.getNombre_vend());
+            stmt.setString(3, vendedor.getApellido_vend());
+            stmt.setString(4, vendedor.getGenero_vend());
+            stmt.setString(5, vendedor.getDireccion_vend());
+            stmt.setString(6, vendedor.getTelefono_vend());
+            stmt.setString(7, vendedor.getEstado_vend());
             System.out.println("ejecutando query:" + SQL_INSERT);
             rows = stmt.executeUpdate();
             System.out.println("Registros afectados:" + rows);
@@ -96,7 +96,7 @@ public class VendedoresDAO {
         return rows;
     }
 
-    public int update(Pacientes paciente) {
+    public int update(Vendedores vendedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -105,13 +105,13 @@ public class VendedoresDAO {
             conn = Conexion.getConnection();
             System.out.println("ejecutando query: " + SQL_UPDATE);
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, paciente.getNombre_paci());
-            stmt.setString(2, paciente.getApellido_paci());
-            stmt.setString(3, paciente.getGenero_paci());
-            stmt.setString(4, paciente.getDireccion_paci());
-            stmt.setString(5, paciente.getTelefono_paci());
-            stmt.setString(6, paciente.getEstado_paci());
-            stmt.setString(7, paciente.getId_paci());
+            stmt.setString(1, vendedor.getNombre_vend());
+            stmt.setString(2, vendedor.getApellido_vend());
+            stmt.setString(3,vendedor.getGenero_vend());
+            stmt.setString(4, vendedor.getDireccion_vend());
+            stmt.setString(5, vendedor.getTelefono_vend());
+            stmt.setString(6, vendedor.getEstado_vend());
+            stmt.setString(7, vendedor.getId_vend());
 
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizado:" + rows);
@@ -126,7 +126,7 @@ public class VendedoresDAO {
         return rows;
     }
 
-    public int delete(Pacientes paciente) {
+    public int delete(Vendedores vendedor) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -135,7 +135,7 @@ public class VendedoresDAO {
             conn = Conexion.getConnection();
             System.out.println("Ejecutando query:" + SQL_DELETE);
             stmt = conn.prepareStatement(SQL_DELETE);
-            stmt.setString(1, paciente.getId_paci());
+            stmt.setString(1, vendedor.getId_vend());
             rows = stmt.executeUpdate();
             System.out.println("Registros eliminados:" + rows);
         } catch (SQLException ex) {
@@ -149,7 +149,7 @@ public class VendedoresDAO {
     }
 
 //    public List<Persona> query(Persona vendedor) { // Si se utiliza un ArrayList
-    public Pacientes query(Pacientes paciente) {    
+    public Vendedores query(Vendedores vendedor) {    
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -160,25 +160,25 @@ public class VendedoresDAO {
             conn = Conexion.getConnection();
             System.out.println("Ejecutando query:" + SQL_QUERY);
             stmt = conn.prepareStatement(SQL_QUERY);
-            stmt.setString(1, paciente.getId_paci());
+            stmt.setString(1, vendedor.getId_vend());
             rs = stmt.executeQuery();
             while (rs.next()) {
-                String codigo = rs.getString("id_paci");
-                String nombre = rs.getString("nombre_paci");
-                String apellido = rs.getString("apellido_paci");
+                String codigo = rs.getString("id_vend");
+                String nombre = rs.getString("nombre_vend");
+                String apellido = rs.getString("apellido_vend");
                 String genero = rs.getString("genero_paci");
-                String direccion = rs.getString("direccion_paci");
-                String telefono = rs.getString("telefono_paci");
-                String estatus = rs.getString("estado_paci");
+                String direccion = rs.getString("direccion_vend");
+                String telefono = rs.getString("telefono_vend");
+                String estatus = rs.getString("estado_vend");
                 
-                paciente = new Pacientes();
-                paciente.setId_paci(codigo);
-                paciente.setNombre_paci(nombre);
-                paciente.setApellido_paci(apellido);
-                paciente.setGenero_paci(genero);
-                paciente.setDireccion_paci(direccion);
-                paciente.setTelefono_paci(telefono);
-                paciente.setEstado_paci(estatus);
+                vendedor = new Vendedores();
+               vendedor.setId_vend(codigo);
+                vendedor.setNombre_vend(nombre);
+                vendedor.setApellido_vend(apellido);
+                vendedor.setGenero_vend(genero);
+                vendedor.setDireccion_vend(direccion);
+                vendedor.setTelefono_vend(telefono);
+               vendedor.setEstado_vend(estatus);
         
             }
             //System.out.println("Registros buscado:" + vendedor);
@@ -189,7 +189,7 @@ public class VendedoresDAO {
             Conexion.close(stmt);
             Conexion.close(conn);
         }
-        return paciente;
+        return vendedor;
     }
         
 }

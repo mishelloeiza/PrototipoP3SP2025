@@ -40,7 +40,7 @@ public class MdiGeneral extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         Bitacora = new javax.swing.JMenu();
         ConsultaBitacora = new javax.swing.JMenuItem();
         salirSistema = new javax.swing.JMenuItem();
@@ -76,13 +76,13 @@ public class MdiGeneral extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem3.setText("Mantenimiento Pacientes");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem4.setText("Mantenimiento Vendedores");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem3);
+        jMenu3.add(jMenuItem4);
 
         jMenu1.add(jMenu3);
 
@@ -134,15 +134,6 @@ public class MdiGeneral extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenu3ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-        MantenimientoPacientes ventana = new MantenimientoPacientes();
-        jDesktopPane1.add(ventana);
-        Dimension desktopSize = jDesktopPane1.getSize();
-        Dimension FrameSize = ventana.getSize();
-        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
     private void salirSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirSistemaActionPerformed
         // TODO add your handling code here:
         // Cerrar otros JInternalFrame antes de abrir uno nuevo//MISHEL
@@ -183,6 +174,16 @@ public class MdiGeneral extends javax.swing.JFrame {
         //       Dimension FrameSize = ventana.getSize();
         //       ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
     }//GEN-LAST:event_BitacoraActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        MantenimientoVendedor ventana = new MantenimientoVendedor();
+        jDesktopPane1.add(ventana);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = ventana.getSize();
+        ventana.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,7 +229,7 @@ public class MdiGeneral extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem salirSistema;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,11 +5,11 @@
  */
 package vista;
 
-import datos.PacientesDAO;
+import datos.VendedoresDAO;
 import domain.Bitacora;
 import datos.BitacoraDAO;
 import domain.UsuarioConectado;
-import domain.Pacientes;
+import domain.Vendedores;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import java.io.File;
@@ -42,42 +42,42 @@ UsuarioConectado usuarioEnSesion = new UsuarioConectado();
 
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID Pacientes");
+        modelo.addColumn("ID Vendedores");
         modelo.addColumn("nombres");
         modelo.addColumn("Apellidos");
         modelo.addColumn("Genero");
         modelo.addColumn("Direccion");
         modelo.addColumn("Telefono");
         modelo.addColumn("Estatus");
-        PacientesDAO pacienteDAO = new PacientesDAO();
-        List<Pacientes> pacientes = pacienteDAO.select();
+        VendedoresDAO vendedorDAO = new VendedoresDAO();
+        List<Vendedores> vendedores = vendedorDAO.select();
         tablaVendedores.setModel(modelo);
         String[] dato = new String[7];
-        for (int i = 0; i < pacientes.size(); i++) {
-            dato[0] = pacientes.get(i).getId_paci();
-            dato[1] = pacientes.get(i).getNombre_paci();
-            dato[2] = pacientes.get(i).getApellido_paci();
-            dato[3] = pacientes.get(i).getGenero_paci();
-            dato[4] = pacientes.get(i).getDireccion_paci();
-            dato[5] = pacientes.get(i).getTelefono_paci();
-            dato[6] = pacientes.get(i).getEstado_paci();
+        for (int i = 0; i < vendedores.size(); i++) {
+            dato[0] = vendedores.get(i).getId_vend();
+            dato[1] = vendedores.get(i).getNombre_vend();
+            dato[2] = vendedores.get(i).getApellido_vend();
+            dato[3] = vendedores.get(i).getGenero_vend();
+            dato[4] = vendedores.get(i).getDireccion_vend();
+            dato[5] = vendedores.get(i).getTelefono_vend();
+            dato[6] = vendedores.get(i).getEstado_vend();
             //System.out.println("vendedor:" + vendedores);
             modelo.addRow(dato);
         }
     }
 
     public void buscarVendedor() {
-        Pacientes pacienteAConsultar = new Pacientes();
-        PacientesDAO pacienteDAO = new PacientesDAO();
-        pacienteAConsultar.setId_paci((txtbuscado.getText()));
-        pacienteAConsultar = pacienteDAO.query(pacienteAConsultar);
-        txtCodigo.setText(pacienteAConsultar.getId_paci());
-        txtNombre.setText(pacienteAConsultar.getNombre_paci());
-        txtApellido.setText(pacienteAConsultar.getApellido_paci());
-        txtGenero.setText(pacienteAConsultar.getGenero_paci());
-        txtDireccion.setText(pacienteAConsultar.getDireccion_paci());
-        txtTelefono.setText(pacienteAConsultar.getTelefono_paci());
-        txtEstatus.setText(pacienteAConsultar.getEstado_paci());
+        Vendedores vendedorAConsultar = new Vendedores();
+         VendedoresDAO vendedorDAO = new VendedoresDAO();
+        vendedorAConsultar.setId_vend((txtbuscado.getText()));
+        vendedorAConsultar = vendedorDAO.query(vendedorAConsultar);
+        txtCodigo.setText(vendedorAConsultar.getId_vend());
+        txtNombre.setText(vendedorAConsultar.getNombre_vend());
+        txtApellido.setText(vendedorAConsultar.getApellido_vend());
+        txtGenero.setText(vendedorAConsultar.getGenero_vend());
+        txtDireccion.setText(vendedorAConsultar.getDireccion_vend());
+        txtTelefono.setText(vendedorAConsultar.getTelefono_vend());
+        txtEstatus.setText(vendedorAConsultar.getEstado_vend());
        
     }
 
@@ -134,7 +134,7 @@ UsuarioConectado usuarioEnSesion = new UsuarioConectado();
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("Mantenimiento Pacientes - 9959-22-6326");
+        setTitle("Mantenimiento Vendedores - 9959-23-3457");
         setVisible(true);
 
         btnEliminar.setText("Eliminar");
@@ -159,7 +159,7 @@ UsuarioConectado usuarioEnSesion = new UsuarioConectado();
         });
 
         label1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        label1.setText("Cursos");
+        label1.setText("Vendedores");
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -432,10 +432,10 @@ UsuarioConectado usuarioEnSesion = new UsuarioConectado();
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        PacientesDAO cursoDAO = new PacientesDAO();
-        Pacientes pacienteAEliminar = new Pacientes();
-        pacienteAEliminar.setId_paci(txtbuscado.getText());
-        cursoDAO.delete(pacienteAEliminar);
+        VendedoresDAO cursoDAO = new VendedoresDAO();
+        Vendedores vendedorAEliminar = new Vendedores();
+       vendedorAEliminar.setId_vend(txtbuscado.getText());
+        cursoDAO.delete(vendedorAEliminar);
         llenadoDeTablas();
        
     registrarBitacora("Eliminar");
@@ -444,17 +444,17 @@ UsuarioConectado usuarioEnSesion = new UsuarioConectado();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        PacientesDAO cursoDAO = new PacientesDAO();
-        Pacientes pacienteAInsertar = new Pacientes();
-        pacienteAInsertar.setId_paci(txtCodigo.getText());
+        VendedoresDAO cursoDAO = new  VendedoresDAO();
+         Vendedores vendedorAInsertar = new  Vendedores();
+        vendedorAInsertar.setId_vend(txtCodigo.getText());
         
-        pacienteAInsertar.setNombre_paci(txtNombre.getText());
-        pacienteAInsertar.setApellido_paci(txtApellido.getText());
-        pacienteAInsertar.setGenero_paci(txtGenero.getText());
-        pacienteAInsertar.setDireccion_paci(txtDireccion.getText());
-        pacienteAInsertar.setTelefono_paci(txtTelefono.getText());
-        pacienteAInsertar.setEstado_paci(txtEstatus.getText());
-        cursoDAO.insert(pacienteAInsertar);
+        vendedorAInsertar.setNombre_vend(txtNombre.getText());
+        vendedorAInsertar.setApellido_vend(txtApellido.getText());
+        vendedorAInsertar.setGenero_vend(txtGenero.getText());
+        vendedorAInsertar.setDireccion_vend(txtDireccion.getText());
+       vendedorAInsertar.setTelefono_vend(txtTelefono.getText());
+        vendedorAInsertar.setEstado_vend(txtEstatus.getText());
+        cursoDAO.insert(vendedorAInsertar);
         llenadoDeTablas();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
@@ -465,16 +465,16 @@ UsuarioConectado usuarioEnSesion = new UsuarioConectado();
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 //        // TODO add your handling code here:
-        PacientesDAO cursoDAO = new PacientesDAO();
-        Pacientes pacienteAActualizar = new Pacientes();
-        pacienteAActualizar.setId_paci(txtbuscado.getText());
-        pacienteAActualizar.setNombre_paci(txtNombre.getText());
-        pacienteAActualizar.setApellido_paci(txtApellido.getText());
-        pacienteAActualizar.setGenero_paci(txtGenero.getText());
-        pacienteAActualizar.setDireccion_paci(txtDireccion.getText());
-        pacienteAActualizar.setTelefono_paci(txtTelefono.getText());
-        pacienteAActualizar.setEstado_paci(txtEstatus.getText());
-        cursoDAO.update(pacienteAActualizar);
+        VendedoresDAO cursoDAO = new VendedoresDAO();
+        Vendedores vendedorAActualizar = new Vendedores();
+        vendedorAActualizar.setId_vend(txtbuscado.getText());
+        vendedorAActualizar.setNombre_vend(txtNombre.getText());
+        vendedorAActualizar.setApellido_vend(txtApellido.getText());
+        vendedorAActualizar.setGenero_vend(txtGenero.getText());
+        vendedorAActualizar.setDireccion_vend(txtDireccion.getText());
+       vendedorAActualizar.setTelefono_vend(txtTelefono.getText());
+        vendedorAActualizar.setEstado_vend(txtEstatus.getText());
+        cursoDAO.update(vendedorAActualizar);
         llenadoDeTablas();
        
     registrarBitacora("Modificar");

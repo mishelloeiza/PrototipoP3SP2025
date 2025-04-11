@@ -86,49 +86,49 @@ public class Vendedores {
         this.id_vend = id_vend;
     }
     
-    public Vendedores (String id_paci, String nombre_paci ) {
-        this.id_paci = id_paci;
-        this.nombre_paci = nombre_paci;
+    public Vendedores (String id_vend, String nombre_vend ) {
+        this.id_vend = id_vend;
+        this.nombre_vend = nombre_vend;
     }
     
-    public Vendedores (String id_paci, String nombre_paci, String apellido_paci){
-        this.id_paci = id_paci;
-        this.nombre_paci = nombre_paci;
-        this.apellido_paci = apellido_paci;
+    public Vendedores (String id_vend, String nombre_vend, String apellido_vend){
+        this.id_vend = id_vend;
+        this.nombre_vend = nombre_vend;
+        this.apellido_vend = apellido_vend;
     }
     
-    public Vendedores (String id_paci, String nombre_paci, String apellido_paci, String genero_paci){
-        this.id_paci = id_paci;
-        this.nombre_paci = nombre_paci;
-        this.apellido_paci = apellido_paci;
-        this.genero_paci = genero_paci;
+    public Vendedores (String id_vend, String nombre_vend, String apellido_vend, String genero_vend){
+        this.id_vend = id_vend;
+        this.nombre_vend = nombre_vend;
+        this.apellido_vend = apellido_vend;
+        this.genero_vend = genero_vend;
     }
     
-    public Vendedores (String id_paci, String nombre_paci, String apellido_paci, String genero_paci, String direccion_paci ){
-        this.id_paci = id_paci;
-        this.nombre_paci = nombre_paci;
-        this.apellido_paci = apellido_paci;
-        this.genero_paci = genero_paci;
-        this.direccion_paci = direccion_paci;
+    public Vendedores (String id_vend, String nombre_vend, String apellido_vend, String genero_vend, String direccion_vend ){
+        this.id_vend = id_vend;
+        this.nombre_vend = nombre_vend;
+        this.apellido_vend = apellido_vend;
+        this.genero_vend = genero_vend;
+        this.direccion_vend = direccion_vend;
     }
     
-    public Vendedores (String id_paci, String nombre_paci, String apellido_paci, String genero_paci, String direccion_paci, String telefono_paci){
-        this.id_paci = id_paci;
-        this.nombre_paci = nombre_paci;
-        this.apellido_paci = apellido_paci;
-        this.genero_paci = genero_paci;
-        this.direccion_paci = direccion_paci;
-        this.telefono_paci = telefono_paci;
+    public Vendedores (String id_vend, String nombre_vend, String apellido_vend, String genero_vend, String direccion_vend, String telefono_vend){
+        this.id_vend = id_vend;
+        this.nombre_vend = nombre_vend;
+        this.apellido_vend = apellido_vend;
+        this.genero_vend = genero_vend;
+        this.direccion_vend = direccion_vend;
+        this.telefono_vend = telefono_vend;
     }
     
-    public Vendedores (String id_paci, String nombre_paci, String apellido_paci, String genero_paci, String direccion_paci, String telefono_paci, String estado_paci){
-        this.id_paci = id_paci;
-        this.nombre_paci = nombre_paci;
-        this.apellido_paci = apellido_paci;
-        this.genero_paci = genero_paci;
-        this.direccion_paci = direccion_paci;
-        this.telefono_paci = telefono_paci;
-        this.estado_paci = estado_paci;
+    public Vendedores (String id_vend, String nombre_vend, String apellido_vend, String genero_vend, String direccion_vend, String telefono_vend, String estado_vend){
+        this.id_vend = id_vend;
+        this.nombre_vend = nombre_vend;
+        this.apellido_vend = apellido_vend;
+        this.genero_vend= genero_vend;
+        this.direccion_vend = direccion_vend;
+        this.telefono_vend = telefono_vend;
+        this.estado_vend = estado_vend;
     }
  
 }
