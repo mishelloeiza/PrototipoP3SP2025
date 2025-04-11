@@ -74,7 +74,7 @@ CREATE TABLE `vendedores` (
   `id_vend` varchar(60) NOT NULL,
   `nombre_vend` varchar(50) NOT NULL,
   `apellido_vend` varchar(60) NOT NULL,
-  `genero_vend` varchar(30) NOT NULL,
+  `nit_vend` varchar(30) NOT NULL,
   `direccion_vend` varchar(60) NOT NULL,
   `telefono_vend` varchar(60) NOT NULL,
   `estado_vend` varchar(30) NOT NULL

@@ -4,24 +4,24 @@ $ git log
 commit 7d27f7308e0de88d3ac6d065162b8c3fbf7db184 (HEAD -> main, origin/main, orig
 in/Bitacora)
 Author: Mishel Loeiza <dloeizar@miumg.edu.gt>
-Date:   Fri Apr 11 18:03:26 2025 +0200
+Date:   Fri Apr 11 10:03:26 2025 +0200
 
     Conexiòn bitacora
 
 commit 02c2c9b7ac49e18bf66686e8d8dc77c5d7babb06
 Author: Mishel Loeiza <dloeizar@miumg.edu.gt>
-Date:   Fri Apr 11 17:59:48 2025 +0200
+Date:   Fri Apr 11 10:59:48 2025 +0200
 
     Scrip mishel 9959-23-3457
 
 commit bc29ca27cf02462abc2b6e9500c689891493d812
 Merge: 1fd29ef de2d4b9
 Author: Mishel Loeiza <dloeizar@miumg.edu.gt>
-Date:   Fri Apr 11 17:57:44 2025 +0200
+Date:   Fri Apr 11 10:57:44 2025 +0200
 
     Finalizando merge con main remoto
 
 commit 1fd29ef292b9ac7049796803b73534e0d4aa3c98 (origin/Contenedores)
 Author: Mishel Loeiza <dloeizar@miumg.edu.gt>
-Date:   Fri Apr 11 17:46:24 2025 +0200
+Date:   Fri Apr 11 10:46:24 2025 +0200
 :

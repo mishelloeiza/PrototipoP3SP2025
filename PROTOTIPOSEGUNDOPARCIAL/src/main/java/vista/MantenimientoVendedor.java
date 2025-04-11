@@ -42,10 +42,10 @@ UsuarioConectado usuarioEnSesion = new UsuarioConectado();
 
     public void llenadoDeTablas() {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("ID Vendedores");
+        modelo.addColumn("Codigo Vendedores");
         modelo.addColumn("nombres");
         modelo.addColumn("Apellidos");
-        modelo.addColumn("Genero");
+        modelo.addColumn("nit");
         modelo.addColumn("Direccion");
         modelo.addColumn("Telefono");
         modelo.addColumn("Estatus");
